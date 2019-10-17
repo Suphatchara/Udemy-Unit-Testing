@@ -32,6 +32,12 @@ namespace TestNinjaUnitTest
         [Test]
         public void Max_FirstArgumentIsGreater_ReturnTheSecondArgument()
         {
+            var math = new Math();
+
+            var result = math.Max(2, 1);
+
+            Assert.That(result, Is.EqualTo(2));
+
 
 
         }
