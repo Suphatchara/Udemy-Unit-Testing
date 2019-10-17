@@ -9,6 +9,7 @@ namespace TestNinjaUnitTest
     {
         [Test]
         public void CanBeCancelledBy_Scenario_ReturnsTrue()
+
         {
             // Arrange
             var reservation = new Reservation();
