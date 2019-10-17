@@ -19,5 +19,17 @@ namespace TestNinjaUnitTest
 
         }
 
+        [Test]
+        public void Max_FirstArgumentIsGreater_ReturnTheFirstArgument()
+        {
+
+        }
+        [Test]
+        public void Max_FirstArgumentIsGreater_ReturnTheSecondArgument()
+        {
+
+
+        }
+
     }
 }
