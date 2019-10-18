@@ -8,7 +8,7 @@ namespace TestNinja.Fundamentals
         {
 
             //return 0;
-            return 1;
+            return int.MaxValue;
         }
         
         public int Max(int a, int b)
