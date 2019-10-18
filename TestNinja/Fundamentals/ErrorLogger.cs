@@ -22,13 +22,11 @@ namespace TestNinja.Fundamentals
             // ...
             _errorId = Guid.NewGuid();
 
-            OnErrorLogged();
-
-        }
-        protected virtual void OnErrorLogged()
-        {
             ErrorLogged?.Invoke(this, _errorId);
 
         }
+        
+
+
     }
 }
