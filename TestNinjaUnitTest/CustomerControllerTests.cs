@@ -9,7 +9,7 @@ using TestNinja.Fundamentals;
 namespace TestNinjaUnitTest
 {
     [TestFixture]
-    class CustomerControllerTests
+    public class CustomerControllerTests
     {
         [Test]
         public void GetCustomer_IdIsZero_ReturnNotFound()
