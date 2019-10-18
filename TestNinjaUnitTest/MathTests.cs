@@ -5,7 +5,7 @@ using TestNinja.Fundamentals;
 namespace TestNinjaUnitTest
 {
     [TestFixture]
-    class MathTests
+    public class MathTests
     {
         [Test]
         public void Add_WhenCalled_ReturnTheSumOfArguments()
