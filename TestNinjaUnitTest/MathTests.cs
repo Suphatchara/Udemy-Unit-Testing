@@ -55,8 +55,9 @@ namespace TestNinjaUnitTest
             Assert.That(result, Is.Not.Empty);
             Assert.That(result.Count(), Is.EqualTo(3));
 
-
-           
+            Assert.That(result, Does.Contain(1));
+            Assert.That(result, Does.Contain(3));
+            Assert.That(result, Does.Contain(5));
 
         }
 
