@@ -18,7 +18,8 @@ namespace TestNinjaUnitTest
 
             var result = formatter.FormatAsBold("abc");
 
-
+            // Spacific
+            Assert.That(result, Is.EqualTo("<strong>abc</string>"));
         }
 
     }
