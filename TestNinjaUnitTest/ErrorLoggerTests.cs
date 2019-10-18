@@ -30,6 +30,9 @@ namespace TestNinjaUnitTest
 
         public void Log_InvalidError_ThrowArgumentNullException(string error)
         {
+            var logger = new ErrorLogger();
+
+            logger.Log(error);
 
         }
     }
