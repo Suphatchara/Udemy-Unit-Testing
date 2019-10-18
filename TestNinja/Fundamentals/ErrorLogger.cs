@@ -7,8 +7,9 @@ namespace TestNinja.Fundamentals
     {
         public string LastError { get; set; }
 
-        public event EventHandler<Guid> ErrorLogged; 
-        
+        public event EventHandler<Guid> ErrorLogged;
+
+        private Guid _errorId;
         public void Log(string error)
         {
             
@@ -24,9 +25,9 @@ namespace TestNinja.Fundamentals
             OnErrorLogged();
 
         }
-        protected virtual void OnErrorLogged(Guid errorId)
+        protected virtual void OnErrorLogged()
         {
-            ErrorLogged?.Invoke(this, errorId);
+            ErrorLogged?.Invoke(this, _errorId);
 
         }
     }
