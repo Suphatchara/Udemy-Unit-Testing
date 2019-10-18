@@ -45,6 +45,11 @@ namespace TestNinjaUnitTest
             var id = Guid.Empty;
             logger.ErrorLogged += (sender, args) => { id = args; };
 
+            logger.Log("a");
+
+            Assert.That(id, Is.Not.EqualTo(Guid.Empty));
+
+
         }
     }
 }
