@@ -52,17 +52,9 @@ namespace TestNinjaUnitTest
 
 
         }
-        [Test]
-        public void OnErrorLogged_WhenCalled_RaiseEvent()
-        {
-            var logger = new ErrorLogger();
-
-            logger.OnErrorLogged(Guid.NewGuid());
-
-            Assert.That(true);
 
 
 
-        }
+        
     }
 }
