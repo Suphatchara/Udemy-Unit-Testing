@@ -22,5 +22,12 @@ namespace TestNinjaUnitTest
             Assert.That(logger.LastError, Is.EqualTo("a")); ;
 
         }
+
+        [Test]
+
+        public void Log_InvalidError_ThrowArgumentNullException(string error)
+        {
+
+        }
     }
 }
