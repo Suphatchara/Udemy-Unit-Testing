@@ -7,8 +7,8 @@ namespace TestNinja.Fundamentals
         public int Add(int a, int b)
         {
 
-            //return 0;
-            return int.MaxValue;
+            return a + b;
+
         }
         
         public int Max(int a, int b)
