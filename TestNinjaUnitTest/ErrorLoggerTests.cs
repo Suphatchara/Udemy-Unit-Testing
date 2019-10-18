@@ -42,7 +42,8 @@ namespace TestNinjaUnitTest
         {
             var logger = new ErrorLogger();
 
-            logger.ErrorLogged += (sender, args) => { };
+            var id = Guid.Empty;
+            logger.ErrorLogged += (sender, args) => { id = args; };
 
         }
     }
