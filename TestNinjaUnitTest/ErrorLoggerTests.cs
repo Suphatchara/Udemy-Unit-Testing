@@ -34,7 +34,7 @@ namespace TestNinjaUnitTest
 
             //logger.Log(error);
             Assert.That(() => logger.Log(error), Throws.ArgumentNullException);
-
+            Assert.That(() => logger.Log(error), Throws.Exception.TypeOf<DivideByZeroException>);
         }
     }
 }
