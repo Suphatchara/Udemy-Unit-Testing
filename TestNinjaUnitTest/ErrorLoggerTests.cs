@@ -59,6 +59,10 @@ namespace TestNinjaUnitTest
 
             logger.OnErrorLogged(Guid.NewGuid());
 
+            Assert.That(true);
+
+
+
         }
     }
 }
