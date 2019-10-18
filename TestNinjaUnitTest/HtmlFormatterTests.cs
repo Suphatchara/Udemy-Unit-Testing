@@ -24,6 +24,7 @@ namespace TestNinjaUnitTest
             // More general
             Assert.That(result, Does.StartWith("<strong>"));
             Assert.That(result, Does.EndWith("<strong>"));
+            Assert.That(result, Does.Contain("abc"));
 
 
         }
