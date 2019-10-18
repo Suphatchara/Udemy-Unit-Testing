@@ -43,32 +43,7 @@ namespace TestNinjaUnitTest
             Assert.That(result, Is.EqualTo(expectedResult));
 
         }
-        [Test]
-        public void Max_FirstArgumentIsGreater_ReturnTheSecondArgument()
-        {
-           
-
-            var result = _math.Max(2, 1);
-
-            Assert.That(result, Is.EqualTo(2));
-
-
-
-        }
-
-        [Test]
-        public void Max_FirstArgumentIsGreater_ReturnTheSameArgument()
-        {
-            var math = new Math();
-
-            var result = math.Max(1, 1);
-
-            Assert.That(result, Is.EqualTo(1));
-
-
-
-
-        }
+        
 
     }
 }
