@@ -20,6 +20,7 @@ namespace TestNinjaUnitTest
 
         
         [Test]
+        [Ignore("Because I wanted to!")]
         public void Add_WhenCalled_ReturnTheSumOfArguments()
         {
            
