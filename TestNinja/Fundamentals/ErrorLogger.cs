@@ -21,11 +21,13 @@ namespace TestNinja.Fundamentals
             // Write the log to a storage
             // ...
             _errorId = Guid.NewGuid();
-
-            ErrorLogged?.Invoke(this, _errorId);
+           
 
         }
-        
+        protected virtual void OnErrorLogged()
+        {
+            ErrorLogged?.Invoke(this, _errorId);
+        }
 
 
     }
