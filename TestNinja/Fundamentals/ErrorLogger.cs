@@ -19,8 +19,9 @@ namespace TestNinja.Fundamentals
 
             // Write the log to a storage
             // ...
+            _errorId = Guid.NewGuid();
 
-            OnErrorLogged(Guid.NewGuid());
+            OnErrorLogged();
 
         }
         protected virtual void OnErrorLogged(Guid errorId)
