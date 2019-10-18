@@ -40,6 +40,9 @@ namespace TestNinjaUnitTest
         [Test]
         public void Log_ValidError_RaiseErrorLoggedEvent()
         {
+            var logger = new ErrorLogger();
+
+            logger.ErrorLogged += (sender, args) => { };
 
         }
     }
