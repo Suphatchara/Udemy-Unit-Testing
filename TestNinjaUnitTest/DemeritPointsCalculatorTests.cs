@@ -12,21 +12,19 @@ namespace TestNinjaUnitTest
     public class DemeritPointsCalculatorTests
     {
         [Test]
-        public void CalculateDemeritPoints_SpeedIsNegative_ThrowArgumentOurOfRangeException(int speed)
+        [TestCase(-1)]
+        [TestCase(301)]
+        public void CalculateDemeritPoints_SpeedIsOutOfRange_ThrowArgumentOurOfRangeException(int speed)
         {
             var calculator = new DemeritPointsCalculator();
 
-            Assert.That(() => calculator.CalculateDemeritPoints(-1),
+            Assert.That(() => calculator.CalculateDemeritPoints(speed),
                  Throws.Exception.TypeOf<ArgumentOutOfRangeException>());
 
 
         }
 
-        [Test]
-        public void CalculateDemeritPoints_SpeedIsOver300_ThrowArgumentOurOfRangeException()
-        {
-
-        }
+        
 
         [Test]
         [TestCase(0, 0)]
