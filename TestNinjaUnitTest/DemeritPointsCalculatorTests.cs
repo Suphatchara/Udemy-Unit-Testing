@@ -11,13 +11,13 @@ namespace TestNinjaUnitTest
     public class DemeritPointsCalculatorTests
     {
         [Test]
-        public void CalculateDemeritPoints_SpeedIsNegative_ThrowArgumentOurOfRangeEx()
+        public void CalculateDemeritPoints_SpeedIsNegative_ThrowArgumentOurOfRangeException()
         {
 
         } 
 
         [Test]
-        public void CalculateDemeritPoints_SpeedIsZero_ReturnZero()
+        public void CalculateDemeritPoints_SpeedIsLessThanOrEqualToSpeedLimit_ReturnZero(int speed)
         {
 
         }
