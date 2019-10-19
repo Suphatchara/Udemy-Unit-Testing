@@ -16,7 +16,7 @@ namespace TestNinjaUnitTest
 
         }
 
-        public void CalculateDemeritPoints_SpeedIsZero_ReturnZero()
+        public void CalculateDemeritPoints_SpeedIsLessThanOrEqualToSpeedLimit_ReturnZero(int speed)
         {
 
         }
