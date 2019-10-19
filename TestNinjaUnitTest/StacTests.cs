@@ -78,5 +78,22 @@ namespace TestNinjaUnitTest
             Assert.That(stack.Count, Is.EqualTo(2));
 
         }
+        [Test]
+        public void Peek_EmptyStack_ThrowInvalidOperationException()
+        {
+
+        }
+
+        [Test]
+        public void Peek_StackWithObjects_ReturnObjectOnTopOfTheStack()
+        {
+
+        }
+
+        [Test]
+        public void Peek_StackWithObjects_DoesNotRemoveTheObjectOnTopOfTheStack()
+        {
+
+        }
     }
 }
