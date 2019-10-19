@@ -4,7 +4,7 @@ namespace TestNinja.Mocking
 {
     public class EmployeeController
     {
-        private EmployeeContext _db;
+       
 
         public EmployeeController()
         {
