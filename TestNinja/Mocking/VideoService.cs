@@ -20,7 +20,7 @@ namespace TestNinja.Mocking
 
 
         }
-        public string ReadVideoTitle(IFileReader)
+        public string ReadVideoTitle()
         {
             var str = _fileReader.Read("video.txt");
             var video = JsonConvert.DeserializeObject<Video>(str);
