@@ -11,7 +11,17 @@ namespace TestNinjaUnitTest
     class DemeritPointsCalculatorTests
     {
         [Test]
-        public void CalculateDemeritPoints_SpeedIsOutOfRange_ThrowArgumentOutOfRangeException()
+        public void CalculateDemeritPoints_SpeedIsNegative_ThrowArgumentOutOfRangeException()
+        {
+
+        }
+
+        public void CalculateDemeritPoints_SpeedIsZero_ReturnZero()
+        {
+
+        }
+
+        public void CalculateDemeritPoints_SpeedIsLessThanSpeedLimit_ReturnZero()
         {
 
         }
