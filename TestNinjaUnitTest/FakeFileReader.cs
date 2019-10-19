@@ -1,14 +1,17 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TestNinja.Mocking;
 
 namespace TestNinjaUnitTest
 {
     [TestClass]
-    public class FakeFileReader
+    public class FakeFileReader : IFileReader
     {
-        [TestMethod]
-        public void TestMethod1()
+        public string Read(string path)
         {
+            return "";
         }
+
     }
+    
 }
