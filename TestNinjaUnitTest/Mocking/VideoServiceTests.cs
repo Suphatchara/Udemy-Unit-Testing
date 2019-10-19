@@ -22,7 +22,7 @@ namespace TestNinjaUnitTest.Mocking
 
             _fileReader = new Mock<IFileReader>();
             _repository = new Mock<IVideoRepository>();
-            _videoService = new VideoService(_fileReader.Object);
+            _videoService = new VideoService(_fileReader.Object, _repository.Object);
         }
 
         [Test]
