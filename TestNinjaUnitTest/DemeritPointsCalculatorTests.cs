@@ -16,7 +16,9 @@ namespace TestNinjaUnitTest
         {
             var calculator = new DemeritPointsCalculator();
 
-            calculator.CalculateDemeritPoints(-1);
+            Assert.That(() => calculator.CalculateDemeritPoints(speed),
+                 Throws.Exception.TypeOf<ArgumentOutOfRangeException>());
+
 
         }
 
