@@ -76,11 +76,29 @@ namespace TestNinja.Mocking
                         SystemSettingsHelper.EmailUsername,
                         SystemSettingsHelper.EmailPassword)
             };
+            var from = new MailAddress(SystemSettingsHelper.EmailFromEmail, SystemSettingsHelper.EmailFromName,
+              Encoding.UTF8);
+            var to = new MailAddress(emailAddress);
 
+            var message = new MailMessage(from, to)
+            {
+                Subject = subject,
+                SubjectEncoding = Encoding.UTF8,
+                Body = emailBody,
+                BodyEncoding = Encoding.UTF8
+            };
 
+            message.Attachments.Add(new Attachment(filename));
+            client.Send(message);
+            message.Dispose();
 
-
-
-
+            File.Delete(filename);
         }
+    }
+
+
+
+
+
+}
     }
