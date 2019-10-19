@@ -8,13 +8,12 @@ namespace TestNinja.Fundamentals
         private readonly List<T> _list = new List<T>();
 
         public int Count => _list.Count;
-        
 
         public void Push(T obj)
         {
             if (obj == null)
                 throw new ArgumentNullException();
-            
+
             _list.Add(obj);
         }
 
@@ -26,8 +25,7 @@ namespace TestNinja.Fundamentals
             var result = _list[_list.Count - 1];
             _list.RemoveAt(_list.Count - 1);
 
-           
-            return result; 
+            return result;
         }
 
 

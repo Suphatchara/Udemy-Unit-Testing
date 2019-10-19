@@ -1,21 +1,17 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using TestNinja.Fundamentals;
 
-namespace TestNinjaUnitTest
+namespace TestNinja.UnitTests
 {
     [TestFixture]
-    public class StacTests
+    public class StackTests
     {
         [Test]
         public void Push_ArgIsNull_ThrowArgNullException()
         {
             var stack = new Stack<string>();
 
-            Assert.That(() => stack.Push(null), Throws.ArgumentException);
+            Assert.That(() => stack.Push(null), Throws.ArgumentNullException);
         }
 
         [Test]
@@ -47,21 +43,43 @@ namespace TestNinjaUnitTest
         [Test]
         public void Pop_StackWithAFewObjects_ReturnObjectOnTheTop()
         {
-            // Arrange
+            // Arrange 
             var stack = new Stack<string>();
             stack.Push("a");
             stack.Push("b");
             stack.Push("c");
 
             // Act
-            var result = stack.Peek();
+            var result = stack.Pop();
 
             // Assert
             Assert.That(result, Is.EqualTo("c"));
-
-
-
         }
+
+        [Test]
+        public void Pop_StackWithAFewObjects_RemoveObjectOnTheTop()
+        {
+            // Arrange 
+            var stack = new Stack<string>();
+            stack.Push("a");
+            stack.Push("b");
+            stack.Push("c");
+
+            // Act
+            stack.Pop();
+
+            // Assert
+            Assert.That(stack.Count, Is.EqualTo(2));
+        }
+
+        [Test]
+        public void Peek_EmptyStack_ThrowInvalidOperationException()
+        {
+            var stack = new Stack<string>();
+
+            Assert.That(() => stack.Peek(), Throws.InvalidOperationException);
+        }
+
         [Test]
         public void Peek_StackWithObjects_ReturnObjectOnTopOfTheStack()
         {
