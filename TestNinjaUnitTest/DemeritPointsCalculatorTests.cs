@@ -22,5 +22,11 @@ namespace TestNinjaUnitTest
 
         }
 
+        [Test]
+        public void CalcolateDemeritPoints_SpeedIsLessThanSpeedLimit_ReturnZero()
+        {
+
+        }
+
     }
 }
