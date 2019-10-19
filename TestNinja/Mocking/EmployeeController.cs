@@ -4,10 +4,11 @@ namespace TestNinja.Mocking
 {
     public class EmployeeController
     {
-       
 
-        public EmployeeController()
+        private readonly IEmployeeStorage _storage;
+        public EmployeeController(IEmployeeStorage storage)
         {
+            _storage = storage;
             _db = new EmployeeContext();
         }
 
