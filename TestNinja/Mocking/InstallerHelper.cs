@@ -11,11 +11,9 @@ namespace TestNinja.Mocking
         {
             _fileDownloader = fileDownloader;
         }
-        
 
         public bool DownloadInstaller(string customerName, string installerName)
         {
-          
             try
             {
                 _fileDownloader.DownloadFile(
@@ -28,7 +26,7 @@ namespace TestNinja.Mocking
             }
             catch (WebException)
             {
-                return false; 
+                return false;
             }
         }
     }
