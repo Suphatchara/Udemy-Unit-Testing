@@ -16,10 +16,9 @@ namespace TestNinjaUnitTest.Mocking
         public void ReadVideoTitle_EmptyFile_ReturnError()
         {
             var fileReader = new Mock<IFileReader>();
-            fileReader.Setup(fr => fr.Read("video.txt")).ThroReturns("");
+            fileReader.Setup(fr => fr.Read("video.txt")).Returns("");
 
-
-            var service = new VideoService(new FakeFileReader());
+            var service = new VideoService(fileReader.Object);
            
 
             var result = service.ReadVideoTitle();
