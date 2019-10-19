@@ -12,6 +12,11 @@ namespace TestNinjaUnitTest.Mocking
     [TestFixture]
     class VideoServiceTests
     {
+        [SetUp]
+        public void SetUp()
+        {
+
+        }
         [Test]
         public void ReadVideoTitle_EmptyFile_ReturnError()
         {
