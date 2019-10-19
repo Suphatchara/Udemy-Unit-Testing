@@ -20,7 +20,8 @@ namespace TestNinjaUnitTest
         [TestCase(0, 0)]
         [TestCase(64, 0)]
         [TestCase(65, 0)]
-        public void CalculateDemeritPoints_SpeedIsLessThanOrEqualToSpeedLimit_ReturnZero(int speed)
+        [TestCase(66, 0)]
+        public void CalculateDemeritPoints_WhenCalled_ReturnDemeritPoint(int speed)
         {
 
         }
