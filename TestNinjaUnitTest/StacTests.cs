@@ -17,5 +17,15 @@ namespace TestNinjaUnitTest
 
             Assert.That(() => stack.Push(null), Throws.ArgumentNullException);
         }
+
+        [Test]
+        public void Push_ValidArg_AddTheObjectToTheStack()
+        {
+            var stack = new Stack<string>();
+
+            stack.Push("a");
+
+            Assert.That(stack.Count, Is.EqualTo(1));
+        }
     }
 }
