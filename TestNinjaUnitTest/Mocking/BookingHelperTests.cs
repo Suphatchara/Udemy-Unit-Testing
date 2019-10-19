@@ -40,6 +40,16 @@ namespace TestNinjaUnitTest.Mocking
             Assert.That(result, Is.Empty);
 
         }
+
+        private DateTime ArriveOn(int year, int month, int day)
+        {
+            return new DateTime(year, month, day, 14, 0, 0);
+        }
+
+        private DateTime DepartOn(int year, int month, int day)
+        {
+            return new DateTime(year, month, day, 10, 0, 0);
+        }
     }
 }
 
