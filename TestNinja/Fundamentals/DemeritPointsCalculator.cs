@@ -18,6 +18,7 @@ namespace TestNinja.Fundamentals
             var demeritPoints = (speed - SpeedLimit)/kmPerDemeritPoint;
 
             return demeritPoints;
+
         }        
     }
 }
