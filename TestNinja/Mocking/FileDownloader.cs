@@ -12,12 +12,10 @@ namespace TestNinja.Mocking
     {
         public void DownloadFile(string url, string path)
         {
-            var client = new WebClient();
-            client.DownloadFile(
-                   string.Format("http://example.com/{0}/{1}",
-                       customerName,
-                       installerName),
-                   _setupDestinationFile);
+            var client = new IWebClient();
+            client.DownloadFile(url, path);
+
+                   
         }
 
     }
