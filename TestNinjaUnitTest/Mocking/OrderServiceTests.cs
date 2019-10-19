@@ -19,9 +19,11 @@ namespace TestNinjaUnitTest.Mocking
             var service = new OrderService(storage.Object);
 
             var order = new Order();
-            service.PlaceOrder();
+            service.PlaceOrder(order);
 
-            storage.Verify(s => s.Store());
+            storage.Verify(s => s.Store(order));
+
+
 
 
         }
