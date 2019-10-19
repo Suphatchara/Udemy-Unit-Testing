@@ -53,6 +53,13 @@ namespace TestNinjaUnitTest
             stack.Push("b");
             stack.Push("c");
 
+            // Act
+            var result = stack.Peek();
+
+            // Assert
+            Assert.That(result, Is.EqualTo("c"));
+
+
 
         }
         [Test]
