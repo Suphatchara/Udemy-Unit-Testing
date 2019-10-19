@@ -33,8 +33,13 @@ namespace TestNinjaUnitTest
         [TestCase(66, 0)]
         [TestCase(70, 1)]
         [TestCase(75, 2)]
-        public void CalculateDemeritPoints_WhenCalled_ReturnDemeritPoint(int speed)
+        public void CalculateDemeritPoints_WhenCalled_ReturnDemeritPoint(int speed, int expectedResult)
         {
+            var calculator = new DemeritPointsCalculator();
+
+            var points = calculator.CalculateDemeritPoints(speed);
+
+            Assert.That(points, Is.EqualTo(expectedResult));
 
         }
 
