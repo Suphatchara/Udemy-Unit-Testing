@@ -37,12 +37,10 @@ namespace TestNinja.Mocking
             var videoIds = new List<int>();
 
             var videos = _repository.GetUnprocessedVideos();
-
             foreach (var v in videos)
                 videoIds.Add(v.Id);
 
             return String.Join(",", videoIds);
-
         }
     }
 

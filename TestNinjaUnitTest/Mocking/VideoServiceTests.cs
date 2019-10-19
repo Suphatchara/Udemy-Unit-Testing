@@ -41,6 +41,11 @@ namespace TestNinjaUnitTest.Mocking
         [Test]
         public void GetUnprocessedVideosAsCsv_AllVideosAreProcessed_ReturnAnEmptyString()
         {
+            _repository.Setup(r => r.GetUnprocessedVideos()).Returns(new List<Video>());
+
+            var result = _videoService.GetUnprocessedVideosAsCsv();
+
+            Assert.That(result, Is.EqualTo(""));
 
         }
 
