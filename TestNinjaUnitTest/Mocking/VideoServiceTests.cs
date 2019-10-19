@@ -15,7 +15,7 @@ namespace TestNinjaUnitTest.Mocking
         [Test]
         public void ReadVideoTitle_EmptyFile_ReturnError()
         {
-            var fileReader = new Mock<IFileReader>();
+            var mockFileReader = new Mock<IFileReader>();
 
 
             var service = new VideoService(new FakeFileReader());
