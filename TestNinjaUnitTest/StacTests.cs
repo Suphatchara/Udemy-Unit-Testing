@@ -15,7 +15,7 @@ namespace TestNinjaUnitTest
         {
             var stack = new Stack<string>();
 
-            Assert.That(() => stack.Push(null), Throws.ArgumentNullException);
+            Assert.That(() => stack.Push(null), Throws.ArgumentException);
         }
 
         [Test]

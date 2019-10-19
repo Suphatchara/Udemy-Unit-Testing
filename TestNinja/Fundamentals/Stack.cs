@@ -8,6 +8,7 @@ namespace TestNinja.Fundamentals
         private readonly List<T> _list = new List<T>();
 
         public int Count => _list.Count;
+        
 
         public void Push(T obj)
         {
