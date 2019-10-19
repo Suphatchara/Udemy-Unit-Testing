@@ -55,10 +55,20 @@ namespace TestNinja.Mocking
 
             report.CreateDocument();
 
+            var filename = Path.Combine(
+               Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+               string.Format("Sandpiper Statement {0:yyyy-MM} {1}.pdf", statementDate, housekeeperName));
 
+            report.ExportToPdf(filename);
 
-
+            return filename;
 
 
         }
+
+
+
+
+
+    }
 }
