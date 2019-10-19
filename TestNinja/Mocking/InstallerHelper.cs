@@ -6,6 +6,8 @@ namespace TestNinja.Mocking
     {
         private string _setupDestinationFile;
 
+        
+
         public bool DownloadInstaller(string customerName, string installerName)
         {
           
