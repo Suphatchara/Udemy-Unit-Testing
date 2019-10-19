@@ -46,10 +46,19 @@ namespace TestNinja.Mocking
             }
 
         }
+        private static string SaveStatement(int housekeeperOid, string housekeeperName, DateTime statementDate)
+        {
+            var report = new HousekeeperStatementReport(housekeeperOid, statementDate);
+
+            if (!report.HasData)
+                return string.Empty;
+
+            report.CreateDocument();
 
 
 
 
 
-    }
+
+        }
 }
