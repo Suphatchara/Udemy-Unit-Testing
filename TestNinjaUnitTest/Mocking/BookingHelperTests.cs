@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Moq;
 using NUnit.Framework;
+using TestNinja.Mocking;
+
 
 namespace TestNinjaUnitTest.Mocking
 {
@@ -13,6 +14,15 @@ namespace TestNinjaUnitTest.Mocking
         [Test]
         public void BookingStartsAndFinishesBeforeAnExistingBooking_ReturnEmptyString()
         {
+            var mock = new Mock<IBookingRepository>();
+            mock.Setup(r => r.GetActiveBookings(1)).Returns(new List<Booking>
+            {
+                new Booking
+                {
+
+                }
+            }.AsQueryable());
+         
 
         }
     }
