@@ -10,28 +10,25 @@ using TestNinja.Mocking;
 namespace TestNinjaUnitTest.Mocking
 {
     [TestFixture]
-    class VideoServiceTests
+    public class VideoServiceTests
     {
+       
         [SetUp]
         public void SetUp()
         {
-
+            _fileReader = new Mock<IFileReader>()
+            _videoService = new VideoService(_fileReader.Object, _repository.Object);
         }
+    }
+
         [Test]
         public void ReadVideoTitle_EmptyFile_ReturnError()
         {
-            var fileReader = new Mock<IFileReader>();
-            fileReader.Setup(fr => fr.Read("video.txt")).Returns("");
+            _fileReader.Setup(fr => fr.Read("video.txt")).Returns("");
 
-            var service = new VideoService(fileReader.Object);
-           
-
-            var result = service.ReadVideoTitle();
+            var result = _videoService.ReadVideoTitle();
 
             Assert.That(result, Does.Contain("error").IgnoreCase);
 
-
         }
-
-    }
 }
