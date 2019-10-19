@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace TestNinja.Mocking
 {
-    public class EmployeeStorage
+    public interface IEmployeeStorage
+    {
+        void DeleteEmployee(int id);
+    }
+
+    public class EmployeeStorage : IEmployeeStorage
     {
         private EmployeeContext _db;
-
-        public EmployeeContext _db;
 
         public EmployeeStorage()
         {
@@ -19,15 +22,12 @@ namespace TestNinja.Mocking
         public void DeleteEmployee(int id)
         {
             var employee = _db.Employees.Find(id);
-            if (employee != null)
-            {
-                _db.Employees.Remove(employee);
-                _db.SaveChanges();
-            }
-
+            if (employee == null) return;
+            _db.Employees.Remove(employee);
+            _db.SaveChanges();
 
         }
-       
+
 
     }
 }
