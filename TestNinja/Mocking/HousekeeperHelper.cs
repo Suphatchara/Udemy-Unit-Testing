@@ -66,9 +66,21 @@ namespace TestNinja.Mocking
 
         }
 
+        private static void EmailFile(string emailAddress, string emailBody, string filename, string subject)
+        {
+            var client = new SmtpClient(SystemSettingsHelper.EmailSmtpHost)
+            {
+                Port = SystemSettingsHelper.EmailPort,
+                Credentials =
+                    new NetworkCredential(
+                        SystemSettingsHelper.EmailUsername,
+                        SystemSettingsHelper.EmailPassword)
+            };
 
 
 
 
+
+
+        }
     }
-}
