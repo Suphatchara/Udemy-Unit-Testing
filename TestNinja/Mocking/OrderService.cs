@@ -11,17 +11,17 @@
 
         public int PlaceOrder(Order order)
         {
-            return 0;
-            //var orderId = _storage.Store(order);
-            
+            var orderId = _storage.Store(order);
+
             // Some other work
 
-            //return orderId; 
+            return orderId;
         }
     }
 
     public class Order
     {
+
     }
 
     public interface IStorage
