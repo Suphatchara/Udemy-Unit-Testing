@@ -15,5 +15,12 @@ namespace TestNinjaUnitTest
         {
 
         } 
+
+        [Test]
+        public void CalculateDemeritPoints_SpeedIsZero_ReturnZero()
+        {
+
+        }
+
     }
 }
