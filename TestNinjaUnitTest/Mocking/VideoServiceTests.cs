@@ -18,7 +18,7 @@ namespace TestNinjaUnitTest.Mocking
 
             var result = service.ReadVideoTitle(new FakeFileReader());
 
-            Assert.That(result, Does.Contain("error").IgnoreCase;
+            Assert.That(result, Does.Contain("error").IgnoreCase);
 
 
         }
