@@ -16,19 +16,19 @@ namespace TestNinjaUnitTest.Mocking
         [SetUp]
         public void SetUp()
         {
-            _fileReader = new Mock<IFileReader>()
-            _videoService = new VideoService(_fileReader.Object, _repository.Object);
-        }
+          
     }
 
         [Test]
         public void ReadVideoTitle_EmptyFile_ReturnError()
         {
-            _fileReader.Setup(fr => fr.Read("video.txt")).Returns("");
+            var fileReader = new Mock<IFileReader>();
+            fileReader.Setup(fr => fr.Read("video.txt")).Returns("");
 
-            var result = _videoService.ReadVideoTitle();
+            var service = new VideoService(fileReader.Object);
+
+            var result = service.ReadVideoTitle();
 
             Assert.That(result, Does.Contain("error").IgnoreCase);
-
         }
 }
