@@ -1,14 +1,20 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using TestNinja.Mocking;
+using NUnit.Framework;
 
 namespace TestNinjaUnitTest.Mocking
 {
-    [TestClass]
+    [TestFixture]
     public class InstallerHelperTests
     {
-        [TestMethod]
-        public void TestMethod1()
+        private Mock<IFileDownloader> _fileDownloader;
+
+        [SetUp]
+        public void SetUp()
         {
+            _fileDownloader = new Mock<IFileDownloader>();
         }
+
     }
 }
