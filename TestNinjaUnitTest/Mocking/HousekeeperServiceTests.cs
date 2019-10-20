@@ -5,6 +5,7 @@ using Moq;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestNinja.Mocking;
 
 namespace TestNinjaUnitTest.Mocking
 {
@@ -21,7 +22,16 @@ namespace TestNinjaUnitTest.Mocking
             }.AsQueryable());
             var statementGenerator = new Mock<IStatementGenerator>();
 
+
             var service = new HousekeeperService(unitOfWork.Object);
+                unitOfWork.Object, 
+                statementGenerator.Object, 
+                emailSender.Object, 
+                messageBox.Object);
+
+            service.SendStatementEmails(new DateTime(2017, 1, 1));
+
+
         }
     }
 }	    
