@@ -115,9 +115,7 @@ namespace TestNinja.UnitTests.Mocking
         [Test]
         public void SendStatmentEmail_StatementFileNameIsWhitespace_ShouldNotEmailTheStatement()
         {
-            _statementGenerator
-                .Setup(sg => sg.SaveStatement(_houseKeeper.Oid, _houseKeeper.FullName, (_statementDate)))
-                .Returns(" ");
+            _statementFileName = "";
             _service.SendStatementEmails(_statementDate);
             _emailSender.Verify(es => es.EmailFile(
                 It.IsAny<string>(),
