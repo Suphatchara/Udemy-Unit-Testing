@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TestNinja.Mocking
 {
-    public static class HousekeeperHelper
+    public static class HousekeeperService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IStatementGenerator _statementGenerator;
