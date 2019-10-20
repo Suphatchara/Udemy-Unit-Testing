@@ -76,16 +76,12 @@ namespace TestNinja.UnitTests.Mocking
         [Test]
         public void SendStatmentEmail_WhenCalled_EmailTheStatement()
         {
-            _statementGenerator
-                .Setup(sg => sg.SaveStatement(_houseKeeper.Oid, _houseKeeper.FullName, (_statementDate)))
-                .Returns(_statementFileName);
+            
             _service.SendStatementEmails(_statementDate);
-            _emailSender.Verify(es => es.EmailFile(
-                _houseKeeper.Email,
-                _houseKeeper.StatementEmailBody,
-                _statementFileName,
-                It.IsAny<string>()));
+            VerifyEmailSent();
         }
+
+       
         [Test]
         public void SendStatmentEmail_StatementFileNameIsNull_ShouldNotEmailTheStatement()
         {
@@ -103,24 +99,14 @@ namespace TestNinja.UnitTests.Mocking
         {
             _statementFileName = "";
             _service.SendStatementEmails(_statementDate);
-            _emailSender.Verify(es => es.EmailFile(
-                It.IsAny<string>(),
-                It.IsAny<string>(),
-                It.IsAny<string>(),
-                It.IsAny<string>()),
-                Times.Never);
+            VerifyEmailNotSent();
         }
         [Test]
         public void SendStatmentEmail_StatementFileNameIsWhitespace_ShouldNotEmailTheStatement()
         {
             _statementFileName = "";
             _service.SendStatementEmails(_statementDate);
-            _emailSender.Verify(es => es.EmailFile(
-                It.IsAny<string>(),
-                It.IsAny<string>(),
-                It.IsAny<string>(),
-                It.IsAny<string>()),
-                Times.Never);
+            VerifyEmailNotSent();
 
         }
 
@@ -132,6 +118,15 @@ namespace TestNinja.UnitTests.Mocking
                             It.IsAny<string>(),
                             It.IsAny<string>()),
                             Times.Never);
+        }
+
+        private void VerifyEmailSent()
+        {
+            _emailSender.Verify(es => es.EmailFile(
+                _houseKeeper.Email,
+                _houseKeeper.StatementEmailBody,
+                _statementFileName,
+                It.IsAny<string>()));
         }
     }
 }
