@@ -20,6 +20,7 @@ namespace TestNinjaUnitTest.Mocking
         [SetUp]
         public void SetUp()
         {
+            _houseKeeper = new Housekeeper { Email = "a", FullName = "b", Oid = 1, StatementEmailBody = "c" };
             var unitOfWork = new Mock<IUnitOfWork>();
             unitOfWork.Setup(uow => uow.Query<Housekeeper>()).Returns(new List<Housekeeper>
             {
