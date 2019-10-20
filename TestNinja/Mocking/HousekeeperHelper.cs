@@ -9,13 +9,17 @@ using System.Threading.Tasks;
 
 namespace TestNinja.Mocking
 {
-    public class HousekeeperHelper
+    public static class HousekeeperHelper
     {
         private static readonly UnitOfWork UnitOfWork = new UnitOfWork();
 
-        public static bool SendStatementEmails(DateTime statementDate)
+        public HousekeeperHelper(IUnitOfWork unitOfWork)
         {
-            var housekeepers = UnitOfWork.Query<Housekeeper>();
+            _unitOfWork = unitOfWork
+        }
+        public  bool SendStatementEmails(DateTime statementDate)
+        {
+            var housekeepers = _unitOfWork.Query<Housekeeper>();
 
             foreach (var housekeeper in housekeepers)
             {
@@ -37,15 +41,12 @@ namespace TestNinja.Mocking
                 }
                 catch (Exception e)
                 {
-
                     XtraMessageBox.Show(e.Message, string.Format("Email failure: {0}", emailAddress),
                         MessageBoxButtons.OK);
-
                 }
-
-                return true;
             }
 
+            return true;
         }
         private static string SaveStatement(int housekeeperOid, string housekeeperName, DateTime statementDate)
         {
@@ -57,16 +58,13 @@ namespace TestNinja.Mocking
             report.CreateDocument();
 
             var filename = Path.Combine(
-               Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-               string.Format("Sandpiper Statement {0:yyyy-MM} {1}.pdf", statementDate, housekeeperName));
+                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                string.Format("Sandpiper Statement {0:yyyy-MM} {1}.pdf", statementDate, housekeeperName));
 
             report.ExportToPdf(filename);
 
             return filename;
-
-
         }
-
         private static void EmailFile(string emailAddress, string emailBody, string filename, string subject)
         {
             var client = new SmtpClient(SystemSettingsHelper.EmailSmtpHost)
@@ -77,8 +75,9 @@ namespace TestNinja.Mocking
                         SystemSettingsHelper.EmailUsername,
                         SystemSettingsHelper.EmailPassword)
             };
+
             var from = new MailAddress(SystemSettingsHelper.EmailFromEmail, SystemSettingsHelper.EmailFromName,
-              Encoding.UTF8);
+                Encoding.UTF8);
             var to = new MailAddress(emailAddress);
 
             var message = new MailMessage(from, to)
@@ -158,9 +157,3 @@ namespace TestNinja.Mocking
         }
     }
 }
-
-
-
-
-}
-
