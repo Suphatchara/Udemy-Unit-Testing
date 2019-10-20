@@ -3,11 +3,7 @@ using System;
 using System.Collections.Generic;
 using Moq;
 using System.Linq;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
 using TestNinja.Mocking;
-using Moq;
 
 namespace TestNinjaUnitTest.Mocking
 {
@@ -49,7 +45,8 @@ namespace TestNinjaUnitTest.Mocking
             
 
             _service.SendStatementEmails(_statementDate);
-            _statementGenerator.Verify(sg => sg.SaveStatement(_statementDate)));
+            _statementGenerator.Verify(sg =>
+                 sg.SaveStatement(_houseKeeper.Oid, _houseKeeper.FullName, (_statementDate)));
 
         }
     }
