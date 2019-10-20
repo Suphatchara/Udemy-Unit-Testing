@@ -29,7 +29,7 @@ namespace TestNinja.Mocking
             _messageBox = messageBox;
         }
 
-    public bool SendStatementEmails(DateTime statementDate)
+    public void SendStatementEmails(DateTime statementDate)
         {
             var housekeepers = _unitOfWork.Query<Housekeeper>();
 
@@ -48,7 +48,7 @@ namespace TestNinja.Mocking
 
                 try
                 {
-                EmailFile(emailAddress, emailBody, statementFilename,
+              
                 _emailFile.EmailFile(emailAddress, emailBody, statementFilename,
                         string.Format("Sandpiper Statement {0:yyyy-MM} {1}", statementDate, housekeeper.FullName));
                 }
@@ -59,7 +59,7 @@ namespace TestNinja.Mocking
                 }
             }
 
-            return true;
+      
         }
        
         private static void EmailFile(string emailAddress, string emailBody, string filename, string subject)
@@ -103,12 +103,9 @@ namespace TestNinja.Mocking
 
     }
         public class XtraMessageBox : IXtraMessageBox
-    {
+        {
 
-    }
-
-
-
+        }
     public class XtraMessageBox
     {
         public static void Show(string s, string housekeeperStatements, MessageBoxButtons ok)
