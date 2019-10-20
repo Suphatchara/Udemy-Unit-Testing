@@ -11,15 +11,25 @@ namespace TestNinja.Mocking
 {
     public static class HousekeeperHelper
     {
-        private static readonly UnitOfWork UnitOfWork = new UnitOfWork();
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IStatementGenerator _statementGenerator;
+        private readonly IEmailSender _emailSender;
+        private readonly IXtraMessageBox messageBox;
 
-        public HousekeeperHelper(IUnitOfWork unitOfWork, IStatementGenerator statementGenerator )
+        public HousekeeperHelper(
+            IUnitOfWork unitOfWork,
+            IStatementGenerator statementGenerator,
+            IEmailSender emailSender)
+            IEmailSender emailSender,
+            IXtraMessageBox messageBox)
         {
-            _unitOfWork = unitOfWork
+            _unitOfWork = unitOfWork;
             _statementGenerator = statementGenerator;
-
+            _emailSender = emailSender;
+            _messageBox = messageBox;
         }
-        public  bool SendStatementEmails(DateTime statementDate)
+
+    public bool SendStatementEmails(DateTime statementDate)
         {
             var housekeepers = _unitOfWork.Query<Housekeeper>();
 
@@ -38,12 +48,13 @@ namespace TestNinja.Mocking
 
                 try
                 {
-                    EmailFile(emailAddress, emailBody, statementFilename,
+                EmailFile(emailAddress, emailBody, statementFilename,
+                _emailFile.EmailFile(emailAddress, emailBody, statementFilename,
                         string.Format("Sandpiper Statement {0:yyyy-MM} {1}", statementDate, housekeeper.FullName));
                 }
                 catch (Exception e)
                 {
-                    XtraMessageBox.Show(e.Message, string.Format("Email failure: {0}", emailAddress),
+                    _messageBox.Show(e.Message, string.Format("Email failure: {0}", emailAddress),
                         MessageBoxButtons.OK);
                 }
             }
@@ -85,10 +96,24 @@ namespace TestNinja.Mocking
     {
         OK
     }
+
+    public interface IXtraMessageBox
+    {
+        void Show(string s, string housekeeperStatements, MessageBoxButtons ok);
+
+    }
+        public class XtraMessageBox : IXtraMessageBox
+    {
+
+    }
+
+
+
     public class XtraMessageBox
     {
         public static void Show(string s, string housekeeperStatements, MessageBoxButtons ok)
         {
+
         }
     }
     public class MainForm
