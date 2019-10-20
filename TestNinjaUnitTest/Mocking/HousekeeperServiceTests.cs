@@ -94,20 +94,10 @@ namespace TestNinja.UnitTests.Mocking
             _service.SendStatementEmails(_statementDate);
 
             VerifyEmailNotSent();
-            {
-               private void VerifyEmailNotSent()
-
-            }
-
-
-            _emailSender.Verify(es => es.EmailFile(
-                It.IsAny<string>(),
-                It.IsAny<string>(),
-                It.IsAny<string>(),
-                It.IsAny<string>()),
-                Times.Never);
 
         }
+
+
         [Test]
         public void SendStatmentEmail_StatementFileNameIsEmptyString_ShouldNotEmailTheStatement()
         {
@@ -132,6 +122,16 @@ namespace TestNinja.UnitTests.Mocking
                 It.IsAny<string>()),
                 Times.Never);
 
+        }
+
+        private void VerifyEmailNotSent()
+        {
+            _emailSender.Verify(es => es.EmailFile(
+                            It.IsAny<string>(),
+                            It.IsAny<string>(),
+                            It.IsAny<string>(),
+                            It.IsAny<string>()),
+                            Times.Never);
         }
     }
 }
