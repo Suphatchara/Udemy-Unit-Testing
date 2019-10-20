@@ -39,14 +39,23 @@ namespace TestNinjaUnitTest.Mocking
 
 
         }
+
         [Test]
         public void SendStatementEmails_WhenCalled_GenerateStatements()
         {
-            
-
             _service.SendStatementEmails(_statementDate);
+
             _statementGenerator.Verify(sg =>
-                 sg.SaveStatement(_houseKeeper.Oid, _houseKeeper.FullName, (_statementDate)));
+                sg.SaveStatement(_houseKeeper.Oid, _houseKeeper.FullName, (_statementDate)));
+        }
+        Test]
+        public void SendStatementEmails_WhenCalled_GenerateStatements()
+        {
+            _service.SendStatementEmails(_statementDate);
+
+            _statementGenerator.Verify(sg =>
+                sg.SaveStatement(_houseKeeper.Oid, _houseKeeper.FullName, (_statementDate)));
+
 
         }
     }
