@@ -36,10 +36,10 @@ namespace TestNinja.Mocking
                 }
                 catch (Exception e)
                 {
-                    
-                        XtraMessageBox.Show(e.Message, string.Format("Email failure: {0}", emailAddress),
-                            MessageBoxButtons.OK);
-                    
+
+                    XtraMessageBox.Show(e.Message, string.Format("Email failure: {0}", emailAddress),
+                        MessageBoxButtons.OK);
+
                 }
 
                 return true;
@@ -95,10 +95,19 @@ namespace TestNinja.Mocking
             File.Delete(filename);
         }
     }
-
+    public enum MessageBoxButtons
+    {
+        OK
+    }
+    public class XtraMessageBox
+    {
+        public static void Show(string s, string housekeeperStatements, MessageBoxButtons ok)
+        {
+        }
+    }
 
 
 
 
 }
-    }
+
